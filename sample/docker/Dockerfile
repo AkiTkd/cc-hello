@@ -7,7 +7,7 @@ WORKDIR /build/temp
 COPY ./ /build/temp
 
 RUN echo '### Build components' \
-    && mvn clean install -f $REPO_PATHhello
+    && mvn clean install -f ${REPO_PATH}hello
 
 FROM adoptopenjdk/openjdk11:alpine AS test-image
 
