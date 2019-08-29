@@ -1,14 +1,13 @@
-FROM maven:3.6 AS payer-ott-gateway-build
+FROM maven:3.6 AS sample-build
 
-ARG PROFILE
-ARG SERVERPORT
+ARG REPO_PATH
 
 WORKDIR /build/temp
 
 COPY ./ /build/temp
 
 RUN echo '### Build components' \
-    && mvn clean install -f hello
+    && mvn clean install -f $REPO_PATHhello
 
 FROM adoptopenjdk/openjdk11:alpine AS test-image
 
